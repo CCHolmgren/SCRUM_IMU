@@ -18,5 +18,10 @@ namespace SCRUM
             lastName = lastname;
             telephoneNumber = telephonenumber;
         }
+
+        public override string ToString()
+        {
+            return firstName + "\n" + lastName + "\n" + telephoneNumber;
+        }
     }
 }

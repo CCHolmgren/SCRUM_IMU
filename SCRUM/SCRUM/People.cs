@@ -9,7 +9,14 @@ namespace SCRUM
     class People
     {
         private Dictionary<int, Person> people = new Dictionary<int, Person>();
-        private int maxPersonIndex = 0;
+        private int __maxpersonindex = 0;
+        private int maxPersonIndex
+        {
+            get
+            {
+                return __maxpersonindex++;
+            }
+        }
 
         public Person getPerson(int id)
         {
@@ -22,7 +29,11 @@ namespace SCRUM
         public void addPerson(Person person)
         {
             people.Add(maxPersonIndex, person);
-            maxPersonIndex+=1;
+        }
+        public void addPerson(string firstName, string lastName, string telephoneNumber)
+        {
+            Person person = new Person(firstName, lastName, telephoneNumber);
+            people.Add(maxPersonIndex, person);
         }
         public void removePerson(Person person)
         {
