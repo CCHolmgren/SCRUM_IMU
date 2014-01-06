@@ -12,6 +12,8 @@ namespace SCRUM
         {
             do
             {
+                Console.WriteLine("Gör ditt val");
+                Console.WriteLine("+ Personer +");
                 wut();
                 Console.SetCursorPosition(3, 10);
                 wut();
