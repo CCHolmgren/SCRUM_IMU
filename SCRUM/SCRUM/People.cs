@@ -43,11 +43,13 @@ namespace SCRUM
         public Person addPerson(string firstName, string lastName, string telephoneNumber)
         {
             Person person = new Person(firstName, lastName, telephoneNumber);
-            string index = maxPersonIndex;
+            return this.addPerson(person);
+            /*string index = maxPersonIndex;
             person.id = index;
-            people.Add(index, person);
-            return person;
+            people.Add(index, person);*/
+            //return person;
         }
+
         public void removePerson(Person person)
         {
             var key = people.Single(p=> p.Value == person).Key;

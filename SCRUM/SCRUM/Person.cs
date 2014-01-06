@@ -57,7 +57,11 @@ namespace SCRUM
                 return _id;
             }
         }
+        public Person()
+            : this("", "", "")
+        {
 
+        }
         public Person(string firstname, string lastname, string telephonenumber)
         {
             _firstName = firstname;
