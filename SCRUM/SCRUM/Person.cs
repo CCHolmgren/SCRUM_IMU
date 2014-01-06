@@ -15,6 +15,10 @@ namespace SCRUM
 
         public string firstName
         {
+            set
+            {
+                _firstName = value;
+            }
             get
             {
                 return _firstName;
@@ -22,6 +26,10 @@ namespace SCRUM
         }
         public string lastName
         {
+            set
+            {
+                _lastName = value;
+            }
             get
             {
                 return _lastName;
@@ -29,6 +37,10 @@ namespace SCRUM
         }
         public string telephoneNumber
         {
+            set
+            {
+                _telephoneNumber = value;
+            }
             get
             {
                 return _telephoneNumber;
