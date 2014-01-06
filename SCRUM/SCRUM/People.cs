@@ -17,7 +17,14 @@ namespace SCRUM
                 return (__maxpersonindex++).ToString();
             }
         }
-
+        public Person getPerson(int id)
+        {
+            return people.Single(p => p.Key == id.ToString()).Value;
+        }
+        public Person getPerson(string id)
+        {
+            return people.Single(p => p.Key == id).Value;
+        }
         public Person getPerson(Person person)
         {
             return people.Single(p => p.Key == person.id).Value;

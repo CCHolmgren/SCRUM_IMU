@@ -20,9 +20,12 @@ namespace SCRUM
             Person towe = new Person("Towe", "1", "2");
             people.addPerson(towe);
             test = people.getPerson(towe);
-            //Console.WriteLine(people.getId(towe));
             Console.WriteLine(test);
             Console.WriteLine();
+
+            Person editPersonZero = people.getPerson(0);
+            editPersonZero.firstName = "Test";
+            editPersonZero.lastName = "TestAgain";
 
             List<Person> personList = people.getPersonAll();
             foreach (var person in personList)
