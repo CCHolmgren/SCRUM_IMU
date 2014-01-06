@@ -59,9 +59,7 @@ namespace SCRUM
         }
         public Person()
             : this("", "", "")
-        {
-
-        }
+        {}
         public Person(string firstname, string lastname, string telephonenumber)
         {
             _firstName = firstname;

@@ -10,7 +10,16 @@ namespace SCRUM
     {
         static void Main(string[] args)
         {
-            Person chris = new Person("Chris","Holm","0738234460");
+            do
+            {
+                wut();
+                Console.WriteLine(String.Format("Yes\r{0,-10}","no"));
+            } while (Console.ReadKey().Key != ConsoleKey.Q);
+            Console.ReadLine();
+        }
+        static void wut()
+        {
+            Person chris = new Person("Chris", "Holm", "0738234460");
             People people = new People();
             people.addPerson(chris);
             Person test = people.getPerson(chris);
@@ -33,8 +42,6 @@ namespace SCRUM
                 Console.WriteLine(person);
                 Console.WriteLine();
             }
-
-            Console.ReadLine();
         }
     }
 }
