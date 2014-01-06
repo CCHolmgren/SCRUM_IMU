@@ -1,1 +1,6 @@
 C:\Users\Chrille\School\c#\SCRUM\SCRUM\bin\Debug\SCRUM.exe.config
+C:\Users\Chrille\School\c#\SCRUM\SCRUM\bin\Debug\SCRUM.exe
+C:\Users\Chrille\School\c#\SCRUM\SCRUM\bin\Debug\SCRUM.pdb
+C:\Users\Chrille\School\c#\SCRUM\SCRUM\obj\Debug\SCRUM.csprojResolveAssemblyReference.cache
+C:\Users\Chrille\School\c#\SCRUM\SCRUM\obj\Debug\SCRUM.exe
+C:\Users\Chrille\School\c#\SCRUM\SCRUM\obj\Debug\SCRUM.pdb
