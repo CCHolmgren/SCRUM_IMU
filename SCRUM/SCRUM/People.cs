@@ -29,10 +29,10 @@ namespace SCRUM
         {
             return people.Single(p => p.Key == person.id).Value;
         }
-        /*public int getId(Person person)
+        public string getId(Person person)
         {
             return people.Single(p => p.Value == person).Key;
-        }*/
+        }
         public Person addPerson(Person person)
         {
             string index = maxPersonIndex;
