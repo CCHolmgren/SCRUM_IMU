@@ -15,12 +15,21 @@ namespace SCRUM
             people.addPerson(chris);
             Person test = people.getPerson(people.getId(chris));
             Console.WriteLine(test);
+            Console.WriteLine();
 
             Person towe = new Person("Towe", "1", "2");
             people.addPerson(towe);
             test = people.getPerson(people.getId(towe));
             Console.WriteLine(people.getId(towe));
             Console.WriteLine(test);
+            Console.WriteLine();
+
+            List<Person> personList = people.getPersonAll();
+            foreach (var person in personList)
+            {
+                Console.WriteLine(person);
+                Console.WriteLine();
+            }
 
             Console.ReadLine();
         }

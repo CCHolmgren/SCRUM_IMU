@@ -8,15 +8,37 @@ namespace SCRUM
 {
     class Person
     {
-        public string firstName;
-        public string lastName;
-        public string telephoneNumber;
+        private string _firstName;
+        private string _lastName;
+        private string _telephoneNumber;
+
+        public string firstName
+        {
+            get
+            {
+                return _firstName;
+            }
+        }
+        public string lastName
+        {
+            get
+            {
+                return _lastName;
+            }
+        }
+        public string telephoneNumber
+        {
+            get
+            {
+                return _telephoneNumber;
+            }
+        }
 
         public Person(string firstname, string lastname, string telephonenumber)
         {
-            firstName = firstname;
-            lastName = lastname;
-            telephoneNumber = telephonenumber;
+            _firstName = firstname;
+            _lastName = lastname;
+            _telephoneNumber = telephonenumber;
         }
 
         public override string ToString()
