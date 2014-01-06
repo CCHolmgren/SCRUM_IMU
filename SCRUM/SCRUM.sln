@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCRUM", "SCRUM\SCRUM.csproj", "{9035953C-96A0-463D-A429-365ECDB8FD0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPeople", "UnitTestPeople\UnitTestPeople.csproj", "{D0F1CBC2-AF2E-4214-A403-BCC0B6E3C000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9035953C-96A0-463D-A429-365ECDB8FD0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9035953C-96A0-463D-A429-365ECDB8FD0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9035953C-96A0-463D-A429-365ECDB8FD0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F1CBC2-AF2E-4214-A403-BCC0B6E3C000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F1CBC2-AF2E-4214-A403-BCC0B6E3C000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F1CBC2-AF2E-4214-A403-BCC0B6E3C000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F1CBC2-AF2E-4214-A403-BCC0B6E3C000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

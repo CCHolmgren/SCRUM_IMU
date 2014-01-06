@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SCRUM
 {
-    class Person
+    public class Person
     {
         private string _firstName;
         private string _lastName;
         private string _telephoneNumber;
+        private string _id;
 
         public string firstName
         {
@@ -31,6 +32,17 @@ namespace SCRUM
             get
             {
                 return _telephoneNumber;
+            }
+        }
+        public string id
+        {
+            set
+            {
+                _id = value;
+            }
+            get
+            {
+                return _id;
             }
         }
 
