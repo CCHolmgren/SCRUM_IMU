@@ -13,9 +13,9 @@ namespace SCRUM
             do
             {
                 wut();
-                Console.WriteLine(String.Format("Yes\r{0,-10}","no"));
+                Console.SetCursorPosition(3, 10);
+                wut();
             } while (Console.ReadKey().Key != ConsoleKey.Q);
-            Console.ReadLine();
         }
         static void wut()
         {
