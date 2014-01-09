@@ -8,7 +8,7 @@ namespace SCRUM
 {
     class Program
     {
-        People people = new People();
+        static People people = new People();
         /// <summary>
         /// Returns the menu with all options in the beginning of the program
         /// </summary>
@@ -29,7 +29,13 @@ namespace SCRUM
         /// </summary>
         static void addPerson()
         {
-            throw new NotImplementedException();
+            Console.Write("Firstname: ");
+            string firstname = Console.ReadLine();
+            Console.Write("Lastname: ");
+            string lastname = Console.ReadLine();
+            Console.Write("Telephone: ");
+            string telephonenumber = Console.ReadLine();
+            people.addPerson(firstname, lastname, telephonenumber);
         }
         /// <summary>
         /// Change the info on person
@@ -45,7 +51,9 @@ namespace SCRUM
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
-            throw new NotImplementedException();
+            people.getPerson(id).firstName = Console.ReadLine();
+            people.getPerson(id).lastName = Console.ReadLine();
+            people.getPerson(id).telephoneNumber = Console.ReadLine();
         }
         /// <summary>
         /// Removes person from the people dictionary
@@ -53,7 +61,7 @@ namespace SCRUM
         /// <param name="person"></param>
         static void removePerson(Person person)
         {
-            throw new NotImplementedException();
+            people.removePerson(person);
         }
         /// <summary>
         /// Removes the person associated with id
@@ -61,14 +69,14 @@ namespace SCRUM
         /// <param name="id"></param>
         static void removePerson(string id)
         {
-            throw new NotImplementedException();
+            people.removePerson(people.getPerson(id));
         }
         /// <summary>
         /// Prints a brief list of all people that are in the dictionary
         /// </summary>
         static void listAllPeople()
         {
-            throw new NotImplementedException();
+            Console.Write(people.ToString());
         }
         /// <summary>
         /// Exits the program
@@ -93,7 +101,11 @@ namespace SCRUM
         /// <param name="person"></param>
         static void listPerson(Person person)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(person);
+        }
+        static void listPerson(string id)
+        {
+            Console.WriteLine(people.getPerson(id));
         }
         static void Main(string[] args)
         {
@@ -124,17 +136,20 @@ namespace SCRUM
                     case "4":
                         listAllPeople();
                         break;
+                    case "5":
+                        listAllPeople();
+                        personid = getChoice("");
+                        listPerson(personid);
+                        break;
                     case "0":
                         exit();
                         break;
                     default:
-                        throw new NullReferenceException();
                         break;
                 }
                 //wut();
                 //Console.SetCursorPosition(3, 10);
                 //wut();
-                Console.Write("Skriv q för att avsluta. ");
             }
         }
         /// <summary>
