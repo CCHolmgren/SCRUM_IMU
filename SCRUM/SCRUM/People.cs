@@ -31,7 +31,8 @@ namespace SCRUM
         /// <returns></returns>
         public Person getPerson(int id)
         {
-            return people.Single(p => p.Key == id.ToString()).Value;
+            return people[id.ToString()];
+            //return people.Single(p => p.Key == id.ToString()).Value;
         }
         /// <summary>
         /// Given id returns a specific person associated with that id
@@ -40,11 +41,27 @@ namespace SCRUM
         /// <returns></returns>
         public Person getPerson(string id)
         {
-            return people.Single(p => p.Key == id).Value;
+            return people[id];
         }
-        public int Count()
+        /// <summary>
+        /// Given id returns a specific person associated with that id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /*public Person getPerson(string id)
         {
-            return people.Count;
+            return people.Single(p => p.Key == id).Value;
+        }*/
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public int Count
+        {
+            get
+            {
+                return people.Count;
+            }
         }
         /// <summary>
         /// Given a specific person return that person
@@ -98,14 +115,16 @@ namespace SCRUM
         }
         /// <summary>
         /// Removes person from the dictionary
+        /// It's totally safe to remove something that isn't in the dictionary in the first place
         /// </summary>
         /// <param name="person"></param>
         public void removePerson(Person person)
         {
-            if (people.Count == 0)
+            people.Remove(person.id);
+            /*if (people.Count == 0)
                 return;
             var key = people.Single(p=> p.Value == person).Key;
-            people.Remove(key);
+            people.Remove(key);*/
         }
         /// <summary>
         /// Checks if person is in the dictionary or not
@@ -121,7 +140,7 @@ namespace SCRUM
         /// Returns all persons
         /// </summary>
         /// <returns></returns>
-        public List<Person> getPersonAll()
+        public List<Person> getPersonList()
         {
             return people.Values.ToList();
         }

@@ -50,6 +50,12 @@ namespace UnitTestPeople
             Assert.IsFalse(people.existsPerson(person));
         }
         [TestMethod]
+        public void TestRemoveNonExistant()
+        {
+                People people = new People();
+                people.removePerson(new Person());
+        }
+        [TestMethod]
         public void TestGetAll()
         {
         }

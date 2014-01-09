@@ -53,7 +53,7 @@ namespace SCRUM
         static void changeInfo(string id)
         {
             Console.WriteLine("Ändra information");
-            if (people.Count() != 0)
+            if (people.Count != 0)
             {
                 Console.Write("Firstname: ");
                 people.getPerson(id).firstName = Console.ReadLine();
@@ -69,7 +69,7 @@ namespace SCRUM
         /// <param name="person"></param>
         static void removePerson(Person person)
         {
-            if(people.Count()!= 0)
+            if(people.Count!= 0)
                 people.removePerson(person);
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace SCRUM
         /// <param name="id"></param>
         static void removePerson(string id)
         {
-            if (people.Count()!=0)
+            if (people.Count!=0)
                 people.removePerson(people.getPerson(id));
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace SCRUM
         }
         static void listPerson(string id)
         {
-            if(people.Count() != 0)
+            if(people.Count != 0)
                 Console.WriteLine(people.getPerson(id));
         }
         static void Main(string[] args)
@@ -203,7 +203,7 @@ namespace SCRUM
             editPersonZero.firstName = "Test";
             editPersonZero.lastName = "TestAgain";
 
-            List<Person> personList = people.getPersonAll();
+            List<Person> personList = people.getPersonList();
             foreach (var person in personList)
             {
                 Console.WriteLine(person);

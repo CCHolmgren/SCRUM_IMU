@@ -96,6 +96,7 @@ namespace SCRUM
             firstName = firstname;
             lastName = lastname;
             telephoneNumber = telephonenumber;
+            id = "0";
         }
         /// <summary>
         /// Overrides the object.ToString() so we can get some decent prints
