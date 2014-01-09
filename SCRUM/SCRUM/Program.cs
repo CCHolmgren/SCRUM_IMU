@@ -8,16 +8,77 @@ namespace SCRUM
 {
     class Program
     {
+        People people = new People();
+        static string GetMenu()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("1. Lägg till person.\n");
+            sb.Append("2. Ändra uppgifter på person.\n");
+            sb.Append("3. Ta bort person.\n");
+            sb.Append("4. Lista alla personer.\n");
+            sb.Append("5. Information om specifik person.\n");
+            sb.Append("0. Avsluta.\n");
+            return sb.ToString();
+        }
+        static void addPerson()
+        {
+            throw new NotImplementedException();
+        }
+        static void changeInfo()
+        {
+            throw new NotImplementedException();
+        }
+        static void removePerson()
+        {
+            throw new NotImplementedException();
+        }
+        static void listAllPeople()
+        {
+            throw new NotImplementedException();
+        }
+        static void exit()
+        {
+            throw new NotImplementedException();
+        }
+        static void getChoice()
+        {
+            throw new NotImplementedException();
+        }
+        static void listPerson()
+        {
+            throw new NotImplementedException();
+        }
         static void Main(string[] args)
         {
-            do
+            string menuText = GetMenu();
+            while (true)
             {
                 Console.WriteLine("Gör ditt val");
-                Console.WriteLine("+ Personer +");
-                wut();
-                Console.SetCursorPosition(3, 10);
-                wut();
-            } while (Console.ReadKey().Key != ConsoleKey.Q);
+                Console.WriteLine(menuText);
+                Console.Write("Nummer: ");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        listAllPeople();
+                        break;
+                    case "0":
+                        exit();
+                        break;
+                    default:
+                        break;
+                }
+                //wut();
+                //Console.SetCursorPosition(3, 10);
+                //wut();
+                Console.Write("Skriv q för att avsluta. ");
+            }
         }
         static void wut()
         {
