@@ -75,7 +75,7 @@ namespace SCRUM
         /// </summary>
         static void exit()
         {
-            throw new NotImplementedException();
+            Environment.Exit(0);
         }
         /// <summary>
         /// Gets a choice and returns it
@@ -83,7 +83,9 @@ namespace SCRUM
         /// </summary>
         static string getChoice(string pretext)
         {
-            throw new NotImplementedException();
+            Console.Write(pretext);
+            string choice = Console.ReadLine();
+            return choice;
         }
         /// <summary>
         /// Takes person and lists its information
