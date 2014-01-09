@@ -29,6 +29,7 @@ namespace SCRUM
         /// </summary>
         static void addPerson()
         {
+            Console.WriteLine("Lägg till person");
             Console.Write("Firstname: ");
             string firstname = Console.ReadLine();
             Console.Write("Lastname: ");
@@ -51,12 +52,16 @@ namespace SCRUM
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
-            Console.Write("Firstname: ");
-            people.getPerson(id).firstName = Console.ReadLine();
-            Console.Write("Lastname: ");
-            people.getPerson(id).lastName = Console.ReadLine();
-            Console.Write("Telephonenumber: ");
-            people.getPerson(id).telephoneNumber = Console.ReadLine();
+            Console.WriteLine("Ändra information");
+            if (people.Count() != 0)
+            {
+                Console.Write("Firstname: ");
+                people.getPerson(id).firstName = Console.ReadLine();
+                Console.Write("Lastname: ");
+                people.getPerson(id).lastName = Console.ReadLine();
+                Console.Write("Telephonenumber: ");
+                people.getPerson(id).telephoneNumber = Console.ReadLine();
+            }
         }
         /// <summary>
         /// Removes person from the people dictionary
@@ -64,7 +69,8 @@ namespace SCRUM
         /// <param name="person"></param>
         static void removePerson(Person person)
         {
-            people.removePerson(person);
+            if(people.Count()!= 0)
+                people.removePerson(person);
         }
         /// <summary>
         /// Removes the person associated with id
@@ -72,14 +78,22 @@ namespace SCRUM
         /// <param name="id"></param>
         static void removePerson(string id)
         {
-            people.removePerson(people.getPerson(id));
+            if (people.Count()!=0)
+                people.removePerson(people.getPerson(id));
         }
         /// <summary>
         /// Prints a brief list of all people that are in the dictionary
         /// </summary>
         static void listAllPeople()
         {
+            Console.WriteLine("Alla personer");
             Console.Write(people.ToString());
+        }
+        static void confirmExit()
+        {
+            Console.Write("Är du säker att du vill avsluta? (y/n) ");
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+                exit();
         }
         /// <summary>
         /// Exits the program
@@ -108,7 +122,8 @@ namespace SCRUM
         }
         static void listPerson(string id)
         {
-            Console.WriteLine(people.getPerson(id));
+            if(people.Count() != 0)
+                Console.WriteLine(people.getPerson(id));
         }
         static void Main(string[] args)
         {
@@ -118,34 +133,45 @@ namespace SCRUM
 
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine("Gör ditt val");
                 Console.WriteLine(menuText);
                 choice = getChoice("Nummer: ");
                 switch (choice)
                 {
                     case "1":
+                        Console.Clear();
                         addPerson();
                         break;
                     case "2":
+                        Console.Clear();
                         listAllPeople();
                         personid = getChoice("");
+                        Console.Clear();
                         changeInfo(personid);
                         break;
                     case "3":
+                        Console.Clear();
                         listAllPeople();
                         personid = getChoice("");
+                        Console.Clear();
                         removePerson(personid);
                         break;
                     case "4":
+                        Console.WriteLine("case 4");
+                        Console.Clear();
                         listAllPeople();
+                        Console.ReadKey();
                         break;
                     case "5":
+                        Console.Clear();
                         listAllPeople();
                         personid = getChoice("");
                         listPerson(personid);
                         break;
                     case "0":
-                        exit();
+                        Console.Clear();
+                        confirmExit();
                         break;
                     default:
                         break;

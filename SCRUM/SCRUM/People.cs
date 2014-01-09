@@ -42,6 +42,10 @@ namespace SCRUM
         {
             return people.Single(p => p.Key == id).Value;
         }
+        public int Count()
+        {
+            return people.Count;
+        }
         /// <summary>
         /// Given a specific person return that person
         /// Should only be used for testing since its useless
@@ -98,6 +102,8 @@ namespace SCRUM
         /// <param name="person"></param>
         public void removePerson(Person person)
         {
+            if (people.Count == 0)
+                return;
             var key = people.Single(p=> p.Value == person).Key;
             people.Remove(key);
         }
