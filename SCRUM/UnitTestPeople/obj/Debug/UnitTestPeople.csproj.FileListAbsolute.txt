@@ -1,0 +1,7 @@
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\bin\Debug\UnitTestPeople.dll
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\bin\Debug\UnitTestPeople.pdb
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\bin\Debug\SCRUM.exe
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\bin\Debug\SCRUM.pdb
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\obj\Debug\UnitTestPeople.csprojResolveAssemblyReference.cache
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\obj\Debug\UnitTestPeople.dll
+C:\Users\Chrille\School\c#\SCRUM\UnitTestPeople\obj\Debug\UnitTestPeople.pdb
