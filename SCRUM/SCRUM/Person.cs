@@ -66,10 +66,14 @@ namespace SCRUM
             _lastName = lastname;
             _telephoneNumber = telephonenumber;
         }
-
         public override string ToString()
         {
-            return firstName + "\n" + lastName + "\n" + telephoneNumber;
+            return this.ToString("\n");
         }
+        public string ToString(string delimiter = "\n")
+        {
+            return firstName + delimiter + lastName + delimiter + telephoneNumber;
+        }
+        
     }
 }
