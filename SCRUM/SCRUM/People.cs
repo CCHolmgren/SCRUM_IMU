@@ -114,7 +114,8 @@ namespace SCRUM
         /// <returns></returns>
         public bool existsPerson(Person person)
         {
-            return people.Any(p => p.Value == person);
+            return people.ContainsValue(person);
+          //  return people.Any(p => p.Value == person);
         }
         /// <summary>
         /// Returns all persons
