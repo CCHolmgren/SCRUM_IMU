@@ -51,8 +51,11 @@ namespace SCRUM
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
+            Console.Write("Firstname: ");
             people.getPerson(id).firstName = Console.ReadLine();
+            Console.Write("Lastname: ");
             people.getPerson(id).lastName = Console.ReadLine();
+            Console.Write("Telephonenumber: ");
             people.getPerson(id).telephoneNumber = Console.ReadLine();
         }
         /// <summary>
