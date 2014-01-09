@@ -40,10 +40,26 @@ namespace SCRUM
             throw new NotImplementedException();
         }
         /// <summary>
+        /// Change the info of the person associated with id
+        /// </summary>
+        /// <param name="id"></param>
+        static void changeInfo(string id)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
         /// Removes person from the people dictionary
         /// </summary>
         /// <param name="person"></param>
         static void removePerson(Person person)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// Removes the person associated with id
+        /// </summary>
+        /// <param name="id"></param>
+        static void removePerson(string id)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +81,7 @@ namespace SCRUM
         /// Gets a choice and returns it
         /// Might implement some form of checking here aswell
         /// </summary>
-        static void getChoice()
+        static string getChoice(string pretext)
         {
             throw new NotImplementedException();
         }
@@ -79,20 +95,29 @@ namespace SCRUM
         }
         static void Main(string[] args)
         {
+            string personid;
+            string choice;
             string menuText = GetMenu();
+
             while (true)
             {
                 Console.WriteLine("Gör ditt val");
                 Console.WriteLine(menuText);
-                Console.Write("Nummer: ");
-                string choice = Console.ReadLine();
+                choice = getChoice("Nummer: ");
                 switch (choice)
                 {
                     case "1":
+                        addPerson();
                         break;
                     case "2":
+                        listAllPeople();
+                        personid = getChoice("");
+                        changeInfo(personid);
                         break;
                     case "3":
+                        listAllPeople();
+                        personid = getChoice("");
+                        removePerson(personid);
                         break;
                     case "4":
                         listAllPeople();
@@ -101,6 +126,7 @@ namespace SCRUM
                         exit();
                         break;
                     default:
+                        throw new NullReferenceException();
                         break;
                 }
                 //wut();
