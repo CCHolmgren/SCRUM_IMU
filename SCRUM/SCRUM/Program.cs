@@ -9,6 +9,10 @@ namespace SCRUM
     class Program
     {
         People people = new People();
+        /// <summary>
+        /// Returns the menu with all options in the beginning of the program
+        /// </summary>
+        /// <returns></returns>
         static string GetMenu()
         {
             StringBuilder sb = new StringBuilder();
@@ -20,31 +24,56 @@ namespace SCRUM
             sb.Append("0. Avsluta.\n");
             return sb.ToString();
         }
+        /// <summary>
+        /// Adds a person to the people dictionary
+        /// </summary>
         static void addPerson()
         {
             throw new NotImplementedException();
         }
-        static void changeInfo()
+        /// <summary>
+        /// Change the info on person
+        /// </summary>
+        /// <param name="person"></param>
+        static void changeInfo(Person person)
         {
             throw new NotImplementedException();
         }
-        static void removePerson()
+        /// <summary>
+        /// Removes person from the people dictionary
+        /// </summary>
+        /// <param name="person"></param>
+        static void removePerson(Person person)
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Prints a brief list of all people that are in the dictionary
+        /// </summary>
         static void listAllPeople()
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Exits the program
+        /// </summary>
         static void exit()
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Gets a choice and returns it
+        /// Might implement some form of checking here aswell
+        /// </summary>
         static void getChoice()
         {
             throw new NotImplementedException();
         }
-        static void listPerson()
+        /// <summary>
+        /// Takes person and lists its information
+        /// </summary>
+        /// <param name="person"></param>
+        static void listPerson(Person person)
         {
             throw new NotImplementedException();
         }
@@ -80,6 +109,9 @@ namespace SCRUM
                 Console.Write("Skriv q för att avsluta. ");
             }
         }
+        /// <summary>
+        /// Trash function that just contains code that I previously tested with
+        /// </summary>
         static void wut()
         {
             Person chris = new Person("Chris", "Holm", "0738234460");
