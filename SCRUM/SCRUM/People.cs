@@ -128,7 +128,8 @@ namespace SCRUM
             StringBuilder sb = new StringBuilder();
             foreach (var x in people)
             {
-                sb.Append(x.Key + x.Value);
+                sb.Append(x.Key + ": " + x.Value.firstName);
+                sb.Append("\n");
             }
             return sb.ToString();
         }
