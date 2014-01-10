@@ -86,23 +86,12 @@ namespace SCRUM
                 Console.Write(String.Format("{0}", person.telephoneNumber)+"\n");
                 Console.ResetColor();
 
-                /*Console.WriteLine("Förnamn: " + String.Format("({0}) ", person.firstName));
-                Console.WriteLine("Efternamn: " + String.Format("({0}) ", person.firstName));
-                Console.WriteLine("Telefonnummer: " + String.Format("({0}) ", person.firstName));
-                */
                 Console.SetCursorPosition(9, 1);
                 person.firstName = Console.ReadLine();
                 Console.SetCursorPosition(11, 2);
                 person.lastName = Console.ReadLine();
                 Console.SetCursorPosition(15, 3);
                 person.telephoneNumber = Console.ReadLine();
-
-                /*Console.Write("Firstname: ");
-                people.getPerson(id).firstName = Console.ReadLine();
-                Console.Write("Lastname: ");
-                people.getPerson(id).lastName = Console.ReadLine();
-                Console.Write("Telephonenumber: ");
-                people.getPerson(id).telephoneNumber = Console.ReadLine();*/
             }
         }
         /// <summary>
@@ -111,7 +100,7 @@ namespace SCRUM
         /// <param name="person"></param>
         static void removePerson(Person person)
         {
-            if(people.Count!= 0)
+            if(people.Count != 0)
                 people.removePerson(person);
         }
         /// <summary>
@@ -134,8 +123,15 @@ namespace SCRUM
         static void confirmExit()
         {
             Console.Write("Är du säker att du vill avsluta? (y/n) ");
-            if (Console.ReadKey().Key == ConsoleKey.Y)
-                exit();
+            while(true){
+                ConsoleKey ck = Console.ReadKey().Key;
+                if (ck == ConsoleKey.Y)
+                    exit();
+                /*else if (ck == ConsoleKey.N)
+                    break;*/
+                else
+                    break;
+            }
         }
         /// <summary>
         /// Exits the program
