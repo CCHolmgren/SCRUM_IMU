@@ -70,20 +70,20 @@ namespace SCRUM
             if (people.Count != 0)
             {
                 Person person = people.getPerson(id);
-                Console.WriteLine("Ändra information");
+                Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)");
                 Console.Write("Förnamn: ");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("({0}) ", person.firstName) + "\n");
+                Console.Write(String.Format("{0}", person.firstName) + "\n");
                 Console.ResetColor();
 
                 Console.Write("Efternamn: ");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("({0}) ", person.lastName) + "\n");
+                Console.Write(String.Format("{0}", person.lastName) + "\n");
                 Console.ResetColor();
 
                 Console.Write("Telefonnummer: ");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("({0}) ", person.telephoneNumber)+"\n");
+                Console.Write(String.Format("{0}", person.telephoneNumber)+"\n");
                 Console.ResetColor();
 
                 /*Console.WriteLine("Förnamn: " + String.Format("({0}) ", person.firstName));
