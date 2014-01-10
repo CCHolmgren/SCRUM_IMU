@@ -8,6 +8,7 @@ namespace SCRUM
 {
     class Program
     {
+        
         static People people = new People();
         /// <summary>
         /// Returns the menu with all options in the beginning of the program
@@ -29,14 +30,28 @@ namespace SCRUM
         /// </summary>
         static void addPerson()
         {
-            Console.WriteLine("Lägg till person");
-            Console.Write("Firstname: ");
+            string firstName, lastName, telephoneNumber;
+            Console.WriteLine("Ändra information");
+            Console.WriteLine("Förnamn: ");
+            Console.WriteLine("Efternamn: ");
+            Console.WriteLine("Telefonnummer: ");
+
+            Console.SetCursorPosition(9, 1);
+            firstName = Console.ReadLine();
+            Console.SetCursorPosition(11, 2);
+            lastName = Console.ReadLine();
+            Console.SetCursorPosition(15, 3);
+            telephoneNumber = Console.ReadLine();
+
+            /*Console.WriteLine("Lägg till person");
+            Console.Write("Förnamn: ");
             string firstname = Console.ReadLine();
-            Console.Write("Lastname: ");
+            Console.Write("Efternamn: ");
             string lastname = Console.ReadLine();
-            Console.Write("Telephone: ");
-            string telephonenumber = Console.ReadLine();
-            people.addPerson(firstname, lastname, telephonenumber);
+            Console.Write("Telefonnummer: ");
+            string telephonenumber = Console.ReadLine();*/
+
+            people.addPerson(firstName, lastName, telephoneNumber);
         }
         /// <summary>
         /// Change the info on person
@@ -52,15 +67,27 @@ namespace SCRUM
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
-            Console.WriteLine("Ändra information");
             if (people.Count != 0)
             {
-                Console.Write("Firstname: ");
+                Person person = people.getPerson(id);
+                Console.WriteLine("Ändra information");
+                Console.WriteLine("Förnamn: ");
+                Console.WriteLine("Efternamn: ");
+                Console.WriteLine("Telefonnummer: ");
+                
+                Console.SetCursorPosition(9, 1);
+                person.firstName = Console.ReadLine();
+                Console.SetCursorPosition(11, 2);
+                person.lastName = Console.ReadLine();
+                Console.SetCursorPosition(15, 3);
+                person.telephoneNumber = Console.ReadLine();
+
+                /*Console.Write("Firstname: ");
                 people.getPerson(id).firstName = Console.ReadLine();
                 Console.Write("Lastname: ");
                 people.getPerson(id).lastName = Console.ReadLine();
                 Console.Write("Telephonenumber: ");
-                people.getPerson(id).telephoneNumber = Console.ReadLine();
+                people.getPerson(id).telephoneNumber = Console.ReadLine();*/
             }
         }
         /// <summary>
@@ -146,19 +173,18 @@ namespace SCRUM
                     case "2":
                         Console.Clear();
                         listAllPeople();
-                        personid = getChoice("");
+                        personid = getChoice("Nummer: ");
                         Console.Clear();
                         changeInfo(personid);
                         break;
                     case "3":
                         Console.Clear();
                         listAllPeople();
-                        personid = getChoice("");
+                        personid = getChoice("Nummer: ");
                         Console.Clear();
                         removePerson(personid);
                         break;
                     case "4":
-                        Console.WriteLine("case 4");
                         Console.Clear();
                         listAllPeople();
                         Console.ReadKey();
@@ -166,8 +192,10 @@ namespace SCRUM
                     case "5":
                         Console.Clear();
                         listAllPeople();
-                        personid = getChoice("");
+                        personid = getChoice("Nummer: ");
+                        Console.Clear();
                         listPerson(personid);
+                        getChoice("Tryck enter när du är klar.");
                         break;
                     case "0":
                         Console.Clear();
