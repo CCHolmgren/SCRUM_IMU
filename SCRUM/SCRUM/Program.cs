@@ -71,10 +71,25 @@ namespace SCRUM
             {
                 Person person = people.getPerson(id);
                 Console.WriteLine("Ändra information");
-                Console.WriteLine("Förnamn: ");
-                Console.WriteLine("Efternamn: ");
-                Console.WriteLine("Telefonnummer: ");
-                
+                Console.Write("Förnamn: ");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write(String.Format("({0}) ", person.firstName) + "\n");
+                Console.ResetColor();
+
+                Console.Write("Efternamn: ");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write(String.Format("({0}) ", person.lastName) + "\n");
+                Console.ResetColor();
+
+                Console.Write("Telefonnummer: ");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write(String.Format("({0}) ", person.telephoneNumber)+"\n");
+                Console.ResetColor();
+
+                /*Console.WriteLine("Förnamn: " + String.Format("({0}) ", person.firstName));
+                Console.WriteLine("Efternamn: " + String.Format("({0}) ", person.firstName));
+                Console.WriteLine("Telefonnummer: " + String.Format("({0}) ", person.firstName));
+                */
                 Console.SetCursorPosition(9, 1);
                 person.firstName = Console.ReadLine();
                 Console.SetCursorPosition(11, 2);
