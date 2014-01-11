@@ -93,7 +93,7 @@ namespace SCRUM
         /// Adds person to the people collection
         /// </summary>
         /// <param name="person"></param>
-        /// <returns></returns>
+        /// <returns>Person added</returns>
         public Person addPerson(Person person)
         {
             string index = maxPersonIndex;
@@ -107,7 +107,7 @@ namespace SCRUM
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="telephoneNumber"></param>
-        /// <returns></returns>
+        /// <returns>Person added</returns>
         public Person addPerson(string firstName, string lastName, string telephoneNumber)
         {
             //DRY
@@ -122,7 +122,7 @@ namespace SCRUM
         /// Removes person from the dictionary
         /// It's totally safe to remove something that isn't in the dictionary in the first place
         /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person">Person to remove</param>
         public void removePerson(Person person)
         {
             people.Remove(person.id);
@@ -135,7 +135,7 @@ namespace SCRUM
         /// Checks if person is in the dictionary or not
         /// </summary>
         /// <param name="person"></param>
-        /// <returns></returns>
+        /// <returns>true if people contains specific person</returns>
         public bool existsPerson(Person person)
         {
             return people.ContainsValue(person);
@@ -153,7 +153,7 @@ namespace SCRUM
         /// <summary>
         /// Returns all persons
         /// </summary>
-        /// <returns></returns>
+        /// <returns>All persons added</returns>
         public List<Person> getPersonList()
         {
             return people.Values.ToList();
@@ -162,7 +162,7 @@ namespace SCRUM
         /// Overrides object.ToString() so we get 
         /// the whole dictionary instead of some useless info
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Person nummer +person.id: + person.firstName\n ad finitum</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
