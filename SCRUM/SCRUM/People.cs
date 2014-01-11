@@ -26,9 +26,10 @@ namespace SCRUM
         }
         /// <summary>
         /// Given id returns a specific person associated with that id
+        /// Will throw KeyNotFoundError if you try to get a person not in the dictionary
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Person with the given id</returns>
         public Person getPerson(int id)
         {
             return people[id.ToString()];
@@ -36,9 +37,10 @@ namespace SCRUM
         }
         /// <summary>
         /// Given id returns a specific person associated with that id
+        /// Will throw KeyNotFoundError if you try to get a person not in the dictionary
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Person with the given id</returns>
         public Person getPerson(string id)
         {
             return people[id];

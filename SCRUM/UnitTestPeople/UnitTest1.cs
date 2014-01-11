@@ -38,6 +38,14 @@ namespace UnitTestPeople
             Assert.AreSame(person, result);
         }
         [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void TestGetPersonFail()
+        {
+            People people = new People();
+            people.getPerson(0);
+            Assert.Fail();
+        }
+        [TestMethod]
         public void TestRemovePerson()
         {
             People people = new People();
@@ -60,7 +68,7 @@ namespace UnitTestPeople
         {
         }
         [TestMethod]
-        public void TestOneEmptyNotSameAsEmpty()
+        public void TestOneEmptyNotSameAsNewEmpty()
         {
             People people = new People();
             people.addPerson(new Person());
