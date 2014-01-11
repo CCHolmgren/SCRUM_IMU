@@ -55,9 +55,9 @@ namespace SCRUM
             return people.Single(p => p.Key == id).Value;
         }*/
         /// <summary>
-        /// 
+        /// Gives you the number of people in the dictionary
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Amount of people in the dictionary</returns>
         public int Count
         {
             get
