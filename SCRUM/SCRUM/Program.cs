@@ -237,12 +237,6 @@ namespace SCRUM
                     case "4":
                         Console.Clear();
                         listAllPeople("Lista på alla personer:");
-                        //DRY
-                        /*if (!listAllPeople("Lista på alla personer:"))
-                        {
-                            getChoice("Tryck enter för att gå tillbaka till menyn.");
-                            break;
-                        }*/
                         getChoice("Tryck enter för att gå tillbaka till menyn.");
                         break;
                     case "5":
