@@ -115,11 +115,28 @@ namespace SCRUM
         /// <summary>
         /// Prints a brief list of all people that are in the dictionary
         /// </summary>
-        static void listAllPeople()
+        /// <returns>false if there are no people in people, true if there are</returns>
+        static bool listAllPeople(string pretext)
         {
-            Console.WriteLine("Alla personer");
+            Console.WriteLine(pretext);
+            if (people.Count == 0)
+            {
+                Console.WriteLine();
+                printErrorMessage("Tyvärr finns det inga personer registrerade. Försök registrera en ny person.");
+                return false;
+            }
             Console.Write(people.ToString());
+            return true;
         }
+        static void printErrorMessage(string errorMessage)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine(errorMessage);
+            Console.ResetColor();
+        }
+        /// <summary>
+        /// Confirms that you want to exit before we call exit()
+        /// </summary>
         static void confirmExit()
         {
             Console.Write("Är du säker att du vill avsluta? (y/n) ");
@@ -172,7 +189,7 @@ namespace SCRUM
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Gör ditt val");
+                Console.WriteLine("Gör ditt val\n");
                 Console.WriteLine(menuText);
                 choice = getChoice("Nummer: ");
                 switch (choice)
@@ -183,31 +200,53 @@ namespace SCRUM
                         break;
                     case "2":
                         Console.Clear();
-                        listAllPeople();
+                        if (!listAllPeople("Ändra uppgifter på person.\nVälj person:"))
+                        {
+                            Console.WriteLine("Tryck enter för att gå tillbaka till menyn.");
+                            Console.ReadLine();
+                            break;
+                        }
                         personid = getChoice("Nummer: ");
                         Console.Clear();
                         changeInfo(personid);
                         break;
                     case "3":
                         Console.Clear();
-                        listAllPeople();
+                        if (!listAllPeople("Ta bort en person.\nVälj person:"))
+                        {
+                            Console.WriteLine("Tryck enter för att gå tillbaka till menyn.");
+                            Console.ReadLine();
+                            break;
+                        }
                         personid = getChoice("Nummer: ");
                         Console.Clear();
                         removePerson(personid);
                         break;
                     case "4":
                         Console.Clear();
-                        listAllPeople();
-                        Console.ReadKey();
+                        if (!listAllPeople("Lista på alla personer:"))
+                        {
+                            Console.Write("Tryck enter för att gå tillbaka till menyn.");
+                            Console.ReadLine();
+                            break;
+                        }
+                        Console.Write("\nTryck enter för att gå tillbaka till menyn.");
+                        Console.ReadLine();
                         break;
                     case "5":
                         Console.Clear();
-                        listAllPeople();
+                        if (!listAllPeople("Information om en specifik person.\nVälj en person:"))
+                        {
+                            Console.Write("Tryck enter för att gå tillbaka till menyn.");
+                            Console.ReadLine();
+                            break;
+                        }
                         personid = getChoice("Nummer: ");
                         Console.Clear();
                         listPerson(personid);
                         getChoice("Tryck enter när du är klar.");
                         break;
+
                     case "0":
                         Console.Clear();
                         confirmExit();
