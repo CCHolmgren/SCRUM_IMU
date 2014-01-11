@@ -43,32 +43,27 @@ namespace SCRUM
             Console.SetCursorPosition(15, 3);
             telephoneNumber = Console.ReadLine();
 
-            /*Console.WriteLine("Lägg till person");
-            Console.Write("Förnamn: ");
-            string firstname = Console.ReadLine();
-            Console.Write("Efternamn: ");
-            string lastname = Console.ReadLine();
-            Console.Write("Telefonnummer: ");
-            string telephonenumber = Console.ReadLine();*/
-
             people.addPerson(firstName, lastName, telephoneNumber);
         }
         /// <summary>
         /// Change the info on person
         /// </summary>
         /// <param name="person"></param>
+        [Obsolete()]
         static void changeInfo(Person person)
         {
             throw new NotImplementedException();
         }
         /// <summary>
         /// Change the info of the person associated with id
+        /// Clears the display so that we do not overwrite any text and make it look odd
         /// </summary>
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
             if (people.Count != 0)
             {
+                Console.Clear();
                 Person person = people.getPerson(id).Item2;
                 Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)");
                 Console.Write("Förnamn: ");
@@ -128,6 +123,10 @@ namespace SCRUM
             Console.Write(people.ToString());
             return true;
         }
+        /// <summary>
+        /// Prints errorMessage in a darkred color
+        /// </summary>
+        /// <param name="errorMessage">message to print</param>
         static void printErrorMessage(string errorMessage)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -266,39 +265,7 @@ namespace SCRUM
                     default:
                         break;
                 }
-                //wut();
-                //Console.SetCursorPosition(3, 10);
-                //wut();
             }
         }
-        /// <summary>
-        /// Trash function that just contains code that I previously tested with
-        /// </summary>
-        /*static void wut()
-        {
-            Person chris = new Person("Chris", "Holm", "0738234460");
-            People people = new People();
-            people.addPerson(chris);
-            Person test = people.getPerson(chris);
-            Console.WriteLine(test);
-            Console.WriteLine();
-
-            Person towe = new Person("Towe", "1", "2");
-            people.addPerson(towe);
-            test = people.getPerson(towe);
-            Console.WriteLine(test);
-            Console.WriteLine();
-
-            Person editPersonZero = people.getPerson(0).Item2;
-            editPersonZero.firstName = "Test";
-            editPersonZero.lastName = "TestAgain";
-
-            List<Person> personList = people.getPersonList();
-            foreach (var person in personList)
-            {
-                Console.WriteLine(person);
-                Console.WriteLine();
-            }
-        }*/
     }
 }
