@@ -69,7 +69,7 @@ namespace SCRUM
         {
             if (people.Count != 0)
             {
-                Person person = people.getPerson(id);
+                Person person = people.getPerson(id).Item2;
                 Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)");
                 Console.Write("Förnamn: ");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -110,7 +110,7 @@ namespace SCRUM
         static void removePerson(string id)
         {
             if (people.Count!=0)
-                people.removePerson(people.getPerson(id));
+                people.removePerson(people.getPerson(id).Item2);
         }
         /// <summary>
         /// Prints a brief list of all people that are in the dictionary
@@ -160,6 +160,9 @@ namespace SCRUM
         /// <summary>
         /// Gets a choice and returns it
         /// Might implement some form of checking here aswell
+        /// This can be used to write some text and wait for user input, such as
+        /// getChoice("Tryck enter för att fortsätta")
+        /// Instead of writing two lines of code :)
         /// </summary>
         static string getChoice(string pretext)
         {
@@ -175,10 +178,21 @@ namespace SCRUM
         {
             Console.WriteLine(person);
         }
-        static void listPerson(string id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        static void listPerson(string id, string errorText = "")
         {
-            if(people.Count != 0)
-                Console.WriteLine(people.getPerson(id));
+            Tuple<bool, Person> tuplePerson = people.getPerson(id);
+
+            if (tuplePerson.Item1)
+            {
+                Console.WriteLine(String.Format("{0} {1}:", tuplePerson.Item2.firstName, tuplePerson.Item2.lastName));
+                Console.WriteLine(tuplePerson.Item2);
+            }
+            else
+                Console.WriteLine(errorText);
         }
         static void Main(string[] args)
         {
@@ -202,8 +216,7 @@ namespace SCRUM
                         Console.Clear();
                         if (!listAllPeople("Ändra uppgifter på person.\nVälj person:"))
                         {
-                            Console.WriteLine("Tryck enter för att gå tillbaka till menyn.");
-                            Console.ReadLine();
+                            getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
                         }
                         personid = getChoice("Nummer: ");
@@ -214,8 +227,7 @@ namespace SCRUM
                         Console.Clear();
                         if (!listAllPeople("Ta bort en person.\nVälj person:"))
                         {
-                            Console.WriteLine("Tryck enter för att gå tillbaka till menyn.");
-                            Console.ReadLine();
+                            getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
                         }
                         personid = getChoice("Nummer: ");
@@ -224,27 +236,26 @@ namespace SCRUM
                         break;
                     case "4":
                         Console.Clear();
-                        if (!listAllPeople("Lista på alla personer:"))
+                        listAllPeople("Lista på alla personer:");
+                        //DRY
+                        /*if (!listAllPeople("Lista på alla personer:"))
                         {
-                            Console.Write("Tryck enter för att gå tillbaka till menyn.");
-                            Console.ReadLine();
+                            getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
-                        }
-                        Console.Write("\nTryck enter för att gå tillbaka till menyn.");
-                        Console.ReadLine();
+                        }*/
+                        getChoice("Tryck enter för att gå tillbaka till menyn.");
                         break;
                     case "5":
                         Console.Clear();
-                        if (!listAllPeople("Information om en specifik person.\nVälj en person:"))
+                        if (!listAllPeople("Information om en specifik person.\nVälj en person:\n"))
                         {
-                            Console.Write("Tryck enter för att gå tillbaka till menyn.");
-                            Console.ReadLine();
+                            getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
                         }
-                        personid = getChoice("Nummer: ");
+                        personid = getChoice("\nNummer: ");
                         Console.Clear();
-                        listPerson(personid);
-                        getChoice("Tryck enter när du är klar.");
+                        listPerson(personid, "Den personen finns tyvärr inte. Försök igen.");
+                        getChoice("\nTryck enter när du är klar.");
                         break;
 
                     case "0":

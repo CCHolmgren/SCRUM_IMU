@@ -40,10 +40,13 @@ namespace SCRUM
         /// Will throw KeyNotFoundError if you try to get a person not in the dictionary
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Person with the given id</returns>
-        public Person getPerson(string id)
+        /// <returns>Tuple with a bool and a Person</returns>
+        public Tuple<bool, Person> getPerson(string id)
         {
-            return people[id];
+            if (existsPerson(id))
+                return new Tuple<bool, Person>(true, people[id]);
+            else
+                return new Tuple<bool, Person>(false, new Person());
         }
         /// <summary>
         /// Given id returns a specific person associated with that id
@@ -137,6 +140,15 @@ namespace SCRUM
         {
             return people.ContainsValue(person);
           //  return people.Any(p => p.Value == person);
+        }
+        /// <summary>
+        /// Checks if id is in the dictinary or not
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool existsPerson(string id)
+        {
+            return people.ContainsKey(id);
         }
         /// <summary>
         /// Returns all persons
