@@ -30,9 +30,9 @@ namespace SCRUM
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Person with the given id</returns>
-        public Person getPerson(int id)
+        public Tuple<bool, Person> getPerson(int id)
         {
-            return people[id.ToString()];
+            return getPerson(id.ToString());
             //return people.Single(p => p.Key == id.ToString()).Value;
         }
         /// <summary>

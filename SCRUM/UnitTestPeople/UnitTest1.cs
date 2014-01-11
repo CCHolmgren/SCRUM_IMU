@@ -38,12 +38,29 @@ namespace UnitTestPeople
             Assert.AreSame(person, result);
         }
         [TestMethod]
-        [ExpectedException(typeof(KeyNotFoundException))]
+        public void TestGetPersonWithID()
+        {
+            People people = new People();
+            Person person = new Person();
+
+            people.addPerson(person);
+            Assert.AreSame(person, people.getPerson(person.id).Item2);
+        }
+        [TestMethod]
+        public void TestGetPersonWithIDFail()
+        {
+            People people = new People();
+            Person person = new Person();
+
+            people.addPerson(person);
+
+            Assert.AreEqual(false, people.getPerson(2).Item1);
+        }
+        [TestMethod]
         public void TestGetPersonFail()
         {
             People people = new People();
-            people.getPerson(0);
-            Assert.Fail();
+            Assert.IsFalse(people.getPerson(0).Item1);
         }
         [TestMethod]
         public void TestRemovePerson()

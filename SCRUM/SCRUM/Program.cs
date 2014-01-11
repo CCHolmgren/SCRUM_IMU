@@ -179,9 +179,10 @@ namespace SCRUM
             Console.WriteLine(person);
         }
         /// <summary>
-        /// 
+        /// Lists the person given the id
+        /// First writes firstName and lastName and then all fields
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">id for a given person</param>
         static void listPerson(string id, string errorText = "")
         {
             Tuple<bool, Person> tuplePerson = people.getPerson(id);
@@ -273,7 +274,7 @@ namespace SCRUM
         /// <summary>
         /// Trash function that just contains code that I previously tested with
         /// </summary>
-        static void wut()
+        /*static void wut()
         {
             Person chris = new Person("Chris", "Holm", "0738234460");
             People people = new People();
@@ -288,7 +289,7 @@ namespace SCRUM
             Console.WriteLine(test);
             Console.WriteLine();
 
-            Person editPersonZero = people.getPerson(0);
+            Person editPersonZero = people.getPerson(0).Item2;
             editPersonZero.firstName = "Test";
             editPersonZero.lastName = "TestAgain";
 
@@ -298,6 +299,6 @@ namespace SCRUM
                 Console.WriteLine(person);
                 Console.WriteLine();
             }
-        }
+        }*/
     }
 }
