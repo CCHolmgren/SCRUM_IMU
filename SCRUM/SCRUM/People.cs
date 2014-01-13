@@ -49,15 +49,6 @@ namespace SCRUM
                 return new Tuple<bool, Person>(false, new Person());
         }
         /// <summary>
-        /// Given id returns a specific person associated with that id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        /*public Person getPerson(string id)
-        {
-            return people.Single(p => p.Key == id).Value;
-        }*/
-        /// <summary>
         /// Gives you the number of people in the dictionary
         /// </summary>
         /// <returns>Amount of people in the dictionary</returns>
