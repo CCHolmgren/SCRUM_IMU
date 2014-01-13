@@ -152,6 +152,7 @@ namespace SCRUM
         }
         /// <summary>
         /// Returns all persons
+        /// The ordering will not be guaranteed, so do not rely on it
         /// </summary>
         /// <returns>All persons added</returns>
         public List<Person> getPersonList()

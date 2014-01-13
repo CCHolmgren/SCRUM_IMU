@@ -12,6 +12,32 @@ namespace UnitTestPeople
     public class UnitTest1
     {
         [TestMethod]
+        public void TestExistsIdLarge()
+        {
+            People people = new People();
+            for (int i = 0; i < 100000; i++)
+            {
+                people.addPerson("", "", "");
+            }
+            Person person = new Person();
+            person = people.addPerson(person);
+            Assert.IsTrue(people.existsPerson(person.id));
+
+        }
+        [TestMethod]
+        public void TestExistsPersonLarge()
+        {
+            People poeple = new People();
+            for (int i = 0; i < 100000; i++)
+            {
+                poeple.addPerson("", "", "");
+            }
+            Person person = new Person();
+            poeple.addPerson(person);
+
+            Assert.IsTrue(poeple.existsPerson(person));
+        }
+        [TestMethod]
         public void TestExistsPerson()
         {
             People people = new People();
