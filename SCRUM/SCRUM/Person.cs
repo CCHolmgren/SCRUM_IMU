@@ -98,6 +98,13 @@ namespace SCRUM
             telephoneNumber = telephonenumber;
             id = "0";
         }
+        public Person(Person person)
+        {
+            firstName = person.firstName;
+            lastName = person.lastName;
+            telephoneNumber = person.telephoneNumber;
+            id = person.id;
+        }
         /// <summary>
         /// Overrides the object.ToString() so we can get some decent prints
         /// </summary>
@@ -115,9 +122,18 @@ namespace SCRUM
         {
             return firstName + delimiter + lastName + delimiter + telephoneNumber;
         }
+        /// <summary>
+        /// Overloaded function so we can print out extra text
+        /// </summary>
+        /// <param name="verbose">Do you want förnamn: efternamn: and telefonnummer: ?</param>
+        /// <param name="delimiter">A string that delimits each field</param>
+        /// <returns></returns>
         public string ToString( bool verbose, string delimiter = "\n")
         {
-            return "Förnamn: " + firstName + delimiter + "Efternamn: " + lastName + delimiter + "Telefonnummer: " + telephoneNumber + delimiter;
+            if (verbose)
+                return "Förnamn: " + firstName + delimiter + "Efternamn: " + lastName + delimiter + "Telefonnummer: " + telephoneNumber + delimiter;
+            else
+                return ToString(delimiter);
         }
     }
 }
