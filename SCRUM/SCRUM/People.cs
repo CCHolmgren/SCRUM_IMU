@@ -117,10 +117,6 @@ namespace SCRUM
         public void removePerson(Person person)
         {
             people.Remove(person.id);
-            /*if (people.Count == 0)
-                return;
-            var key = people.Single(p=> p.Value == person).Key;
-            people.Remove(key);*/
         }
         /// <summary>
         /// Checks if person is in the dictionary or not
