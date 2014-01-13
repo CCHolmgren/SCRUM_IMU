@@ -54,6 +54,10 @@ namespace SCRUM
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Prints a message with green text
+        /// </summary>
+        /// <param name="message"></param>
         static void printGreenColor(string message)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -67,27 +71,18 @@ namespace SCRUM
         /// <param name="id"></param>
         static void changeInfo(string id)
         {
-            if (people.Count != 0)
+            if (people.existsPerson(id))
             {
                 Console.Clear();
                 Person person = people.getPerson(id).Item2;
                 Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)\n");
                 Console.Write("Förnamn: ");
-                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("{0}", person.firstName) + "\n");
-                Console.ResetColor();*/
                 printGreenColor(String.Format("{0}", person.firstName) + "\n");
 
                 Console.Write("Efternamn: ");
-                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("{0}", person.lastName) + "\n");
-                Console.ResetColor();*/
                 printGreenColor(String.Format("{0}", person.lastName) + "\n");
                 
                 Console.Write("Telefonnummer: ");
-                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(String.Format("{0}", person.telephoneNumber)+"\n");
-                Console.ResetColor();*/
                 printGreenColor(String.Format("{0}", person.telephoneNumber) + "\n");
 
                 Console.SetCursorPosition(9, 2);
@@ -104,7 +99,7 @@ namespace SCRUM
         /// <param name="person"></param>
         static void removePerson(Person person)
         {
-            if(people.Count != 0)
+            if(people.existsPerson(person))
                 people.removePerson(person);
         }
         /// <summary>
@@ -113,7 +108,7 @@ namespace SCRUM
         /// <param name="id"></param>
         static void removePerson(string id)
         {
-            if (people.Count!=0)
+            if (people.existsPerson(id))
                 people.removePerson(people.getPerson(id).Item2);
         }
         /// <summary>
