@@ -115,6 +115,9 @@ namespace SCRUM
         {
             return firstName + delimiter + lastName + delimiter + telephoneNumber;
         }
-        
+        public string ToString( bool verbose, string delimiter = "\n")
+        {
+            return "Förnamn: " + firstName + delimiter + "Efternamn: " + lastName + delimiter + "Telefonnummer: " + telephoneNumber + delimiter;
+        }
     }
 }

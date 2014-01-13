@@ -31,16 +31,16 @@ namespace SCRUM
         static void addPerson()
         {
             string firstName, lastName, telephoneNumber;
-            Console.WriteLine("Ändra information");
+            Console.WriteLine("Ändra information\n");
             Console.WriteLine("Förnamn: ");
             Console.WriteLine("Efternamn: ");
             Console.WriteLine("Telefonnummer: ");
 
-            Console.SetCursorPosition(9, 1);
+            Console.SetCursorPosition(9, 2);
             firstName = Console.ReadLine();
-            Console.SetCursorPosition(11, 2);
+            Console.SetCursorPosition(11, 3);
             lastName = Console.ReadLine();
-            Console.SetCursorPosition(15, 3);
+            Console.SetCursorPosition(15, 4);
             telephoneNumber = Console.ReadLine();
 
             people.addPerson(firstName, lastName, telephoneNumber);
@@ -54,6 +54,12 @@ namespace SCRUM
         {
             throw new NotImplementedException();
         }
+        static void printGreenColor(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write(message);
+            Console.ResetColor();
+        }
         /// <summary>
         /// Change the info of the person associated with id
         /// Clears the display so that we do not overwrite any text and make it look odd
@@ -65,27 +71,30 @@ namespace SCRUM
             {
                 Console.Clear();
                 Person person = people.getPerson(id).Item2;
-                Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)");
+                Console.WriteLine("Ändra information (tidigare ifyllda värden visas i grön text)\n");
                 Console.Write("Förnamn: ");
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write(String.Format("{0}", person.firstName) + "\n");
-                Console.ResetColor();
+                Console.ResetColor();*/
+                printGreenColor(String.Format("{0}", person.firstName) + "\n");
 
                 Console.Write("Efternamn: ");
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write(String.Format("{0}", person.lastName) + "\n");
-                Console.ResetColor();
-
+                Console.ResetColor();*/
+                printGreenColor(String.Format("{0}", person.lastName) + "\n");
+                
                 Console.Write("Telefonnummer: ");
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                /*Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write(String.Format("{0}", person.telephoneNumber)+"\n");
-                Console.ResetColor();
+                Console.ResetColor();*/
+                printGreenColor(String.Format("{0}", person.telephoneNumber) + "\n");
 
-                Console.SetCursorPosition(9, 1);
+                Console.SetCursorPosition(9, 2);
                 person.firstName = Console.ReadLine();
-                Console.SetCursorPosition(11, 2);
+                Console.SetCursorPosition(11, 3);
                 person.lastName = Console.ReadLine();
-                Console.SetCursorPosition(15, 3);
+                Console.SetCursorPosition(15, 4);
                 person.telephoneNumber = Console.ReadLine();
             }
         }
@@ -189,7 +198,7 @@ namespace SCRUM
             if (tuplePerson.Item1)
             {
                 Console.WriteLine(String.Format("{0} {1}:", tuplePerson.Item2.firstName, tuplePerson.Item2.lastName));
-                Console.WriteLine(tuplePerson.Item2);
+                Console.WriteLine(tuplePerson.Item2.ToString(true));
             }
             else
                 Console.WriteLine(errorText);
@@ -214,30 +223,30 @@ namespace SCRUM
                         break;
                     case "2":
                         Console.Clear();
-                        if (!listAllPeople("Ändra uppgifter på person.\nVälj person:"))
+                        if (!listAllPeople("Ändra uppgifter på person.\n\nVälj person:"))
                         {
                             getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
                         }
-                        personid = getChoice("Nummer: ");
+                        personid = getChoice("\nNummer: ");
                         Console.Clear();
                         changeInfo(personid);
                         break;
                     case "3":
                         Console.Clear();
-                        if (!listAllPeople("Ta bort en person.\nVälj person:"))
+                        if (!listAllPeople("Ta bort en person.\n\nVälj person:"))
                         {
                             getChoice("Tryck enter för att gå tillbaka till menyn.");
                             break;
                         }
-                        personid = getChoice("Nummer: ");
+                        personid = getChoice("\nNummer: ");
                         Console.Clear();
                         removePerson(personid);
                         break;
                     case "4":
                         Console.Clear();
-                        listAllPeople("Lista på alla personer:");
-                        getChoice("Tryck enter för att gå tillbaka till menyn.");
+                        listAllPeople("Lista på alla personer:\n");
+                        getChoice("\nTryck enter för att gå tillbaka till menyn.");
                         break;
                     case "5":
                         Console.Clear();

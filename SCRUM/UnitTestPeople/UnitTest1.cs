@@ -106,32 +106,6 @@ namespace UnitTestPeople
             People people = new People();
             people.removePerson(new Person());
         }
-        /*[TestMethod]
-        public void TestGetAll()
-        {
-            People people = new People();
-            Person one = new Person();
-            Person two = new Person();
-            Person three = new Person();
-            people.addPerson(one);
-            people.addPerson(two);
-            people.addPerson(three);
-            List<Person> personList = people.getPersonList();
-            List<Person> expectedPersonList = new List<Person>();
-
-            
-            expectedPersonList.Add(one);
-            expectedPersonList.Add(two);
-            expectedPersonList.Add(three);
-            expectedPersonList.Sort();
-            personList.Sort();
-
-            for(int i = 0; i < expectedPersonList.Count; i++)
-            {
-                if (expectedPersonList[i] != personList[i])
-                    Assert.Fail();
-            }
-        }*/
         [TestMethod]
         public void TestOneEmptyNotSameAsNewEmpty()
         {
@@ -143,6 +117,11 @@ namespace UnitTestPeople
         public void TestToStringDelimiter()
         {
             Assert.AreEqual((new Person()).ToString(), (new Person()).ToString("\n"));
+        }
+        [TestMethod]
+        public void TestToStringOtherDelimiter()
+        {
+            Assert.AreNotEqual((new Person()).ToString(":"), (new Person()).ToString(";"));
         }
     }
 }
